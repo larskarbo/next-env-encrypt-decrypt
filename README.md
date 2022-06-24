@@ -50,7 +50,7 @@ gen_key | vercel env add SECRETS_KEY production
 
 For this example, you'll need two keys in Doppler: `NEXT_PUBLIC_KEY` and `SECRET_KEY`.
 
-<img width="665" alt="screenshot-mko9dm3c" src="https://user-images.githubusercontent.com/10865165/175525864-a102b549-71c2-4dd6-ad1b-5e4e6c60e3fb.png">
+![image](https://user-images.githubusercontent.com/10865165/175528594-c596cc0a-120a-4209-abc1-504a39d24150.png)
 
 ## Run locally
 
