@@ -1,17 +1,19 @@
+import Cryptr from "cryptr";
 import fs from "fs/promises";
 import secrets from "gitops-secrets";
 
-if (!process.env.GITOPS_SECRETS_MASTER_KEY) {
-  throw new Error("GITOPS_SECRETS_MASTER_KEY is not set");
-}
-
 async function main() {
   const payload = await secrets.providers.doppler.fetch();
-  await secrets.build(payload, {
-    path: "./src/secrets.gen.ts",
-    typescript: true,
-    cipherTextOnly: true,
-  });
+
+  if (!process.env.GITOPS_SECRETS_MASTER_KEY) {
+    throw new Error("GITOPS_SECRETS_MASTER_KEY is not set");
+  }
+
+  const cryptr = new Cryptr(process.env.GITOPS_SECRETS_MASTER_KEY);
+
+  const encryptedText = cryptr.encrypt(JSON.stringify(payload));
+
+  await fs.writeFile(".encrypted-secrets", encryptedText);
 
   let envFile = "";
 

@@ -1,9 +1,9 @@
-import { CIPHER_TEXT } from "./secrets.gen";
-import secrets from "gitops-secrets";
-
 let decryptedSecrets: null | {
   [key: string]: string;
 } = null;
+
+import { readFileSync } from "fs";
+import Cryptr from "cryptr";
 
 export const getSecret = (key: string) => {
   // in case you have some overrides in `.env.local`
@@ -11,14 +11,16 @@ export const getSecret = (key: string) => {
     return process.env[key];
   }
 
-  if (CIPHER_TEXT === null) {
-    return undefined;
-  }
-
   // only decrypt secrets the first time
   if (!decryptedSecrets) {
-    decryptedSecrets = secrets.decrypt(CIPHER_TEXT);
+    if (!process.env.GITOPS_SECRETS_MASTER_KEY) {
+      return undefined
+    }
+
+    const encryptedSecrets = readFileSync(".encrypted-secrets", "utf8");
+    const cryptr = new Cryptr(process.env.GITOPS_SECRETS_MASTER_KEY);
+    decryptedSecrets = JSON.parse(cryptr.decrypt(encryptedSecrets));
   }
 
-  return decryptedSecrets[key];
+  return decryptedSecrets?.[key];
 };

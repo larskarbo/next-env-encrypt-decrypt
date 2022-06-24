@@ -35,3 +35,27 @@ And load https://localhost:3000
 
 
 ## Alternative 2: With encryption
+
+Add some extra security by encrypting the values at rest. This prevents the need to have secrets in `env` and in `process.env`.
+
+We need to add an extra key to the Vercel environment manager.
+
+```
+gen_key () { openssl rand -base64 32 }
+
+gen_key | vercel env add GITOPS_SECRETS_MASTER_KEY development
+gen_key | vercel env add GITOPS_SECRETS_MASTER_KEY preview
+gen_key | vercel env add GITOPS_SECRETS_MASTER_KEY production
+```
+
+Run `vercel env pull`
+
+Run `npm run fetch-encrypt-secrets` to populate `secrets.gen.ts` with encrypted secrets.
+
+Then run
+
+```
+npm run dev
+```
+
+And load https://localhost:3000
