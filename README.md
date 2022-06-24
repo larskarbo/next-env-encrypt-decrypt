@@ -10,7 +10,11 @@ This way of handling secrets achieves two things:
 
 ## Set up
 
-Set up Doppler and Vercel
+We'll need two environment variables on Vercel, `DOPPLER_TOKEN` and `SECRETS_KEY`. The rest will be managed in Doppler.
+
+### Generating `DOPPLER_TOKEN` and `SECRETS_KEY` 
+
+Set up the Doppler and Vercel CLIs
 
 ```bash
 doppler setup
