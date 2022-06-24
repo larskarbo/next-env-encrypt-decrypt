@@ -4,9 +4,7 @@ import fs from "fs/promises";
 import secrets from "@larskarbo/gitops-secrets";
 
 async function main() {
-  const payload = await secrets.providers.doppler.fetch({
-    dopplerToken: process.env.DOPPLER_TOKEN,
-  });
+  const payload = await secrets.providers.doppler.fetch();
 
   if (!process.env.GITOPS_SECRETS_MASTER_KEY) {
     throw new Error("GITOPS_SECRETS_MASTER_KEY is not set");
