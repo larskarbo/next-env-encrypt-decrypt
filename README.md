@@ -12,6 +12,8 @@ This way of handling secrets achieves two things:
 
 We'll need two environment variables on Vercel, `DOPPLER_TOKEN` and `SECRETS_KEY`. The rest will be managed in Doppler.
 
+Feel free to add the keys manually, or use the CLIs to do it for you 👇
+
 ### Generating `DOPPLER_TOKEN` and `SECRETS_KEY` 
 
 Set up the Doppler and Vercel CLIs
@@ -47,17 +49,12 @@ For this example, you'll need two keys in Doppler: `NEXT_PUBLIC_KEY` and `SECRET
 
 ## Run locally
 
-Run `vercel env pull`
-
-Run `npm run fetch-encrypt-secrets` to populate `secrets.gen.ts` with encrypted secrets.
-
-Then run
-
 ```
+npm run fetch-secrets
 npm run dev
 ```
 
-And load https://localhost:3000
+The app should be available at https://localhost:3000
 
 
 ## Run on Vercel
