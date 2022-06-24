@@ -1,19 +1,19 @@
+# next-env-encrypt-decrypt
+
 This is an example repository for how to use `gitops-secret` in a Nextjs project.
 
 Set up doppler and vercel
 
-```
+```bash
 doppler setup
 vercel link
 ```
 
 Add the DOPPLER_TOKEN to the Vercel environment manager.
 
-```
+```bash
 echo -n "$(doppler configs tokens create vercel-gitops --config dev --plain)" | vercel env add DOPPLER_TOKEN development
-
 echo -n "$(doppler configs tokens create vercel-gitops --config stg --plain)" | vercel env add DOPPLER_TOKEN preview
-
 echo -n "$(doppler configs tokens create vercel-gitops --config prd --plain)" | vercel env add DOPPLER_TOKEN production
 ```
 
