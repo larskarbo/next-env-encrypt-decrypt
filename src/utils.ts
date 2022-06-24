@@ -7,7 +7,7 @@ import { readFileSync } from "fs";
 import Cryptr from "cryptr";
 import path from "path";
 
-export const ENCRYPTED_SECRETS_FILE = "./public/.encrypted-secrets";
+export const ENCRYPTED_SECRETS_FILE = ".encrypted-secrets";
 
 export const getSecret = (key: string) => {
   // in case you have some overrides in `.env.local`
