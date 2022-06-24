@@ -2,6 +2,7 @@ import Cryptr from "cryptr";
 import fs from "fs/promises";
 
 import secrets from "@larskarbo/gitops-secrets";
+import { ENCRYPTED_SECRETS_FILE } from "../src/utils";
 
 async function main() {
   const payload = await secrets.providers.doppler.fetch();
@@ -14,7 +15,7 @@ async function main() {
 
   const encryptedText = cryptr.encrypt(JSON.stringify(payload));
 
-  await fs.writeFile(".encrypted-secrets", encryptedText);
+  await fs.writeFile(ENCRYPTED_SECRETS_FILE, encryptedText);
 
   let envFile = "";
 
