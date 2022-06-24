@@ -11,7 +11,7 @@ doppler setup
 vercel link
 ```
 
-Add the `DOPPLER_TOKEN` to the Vercel environment manager.
+Generate a `DOPPLER_TOKEN` for each environment and add to Vercel.
 
 ```bash
 echo -n "$(doppler configs tokens create vercel-gitops --config dev --plain)" | vercel env add DOPPLER_TOKEN development
