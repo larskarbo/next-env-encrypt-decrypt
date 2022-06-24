@@ -17,7 +17,7 @@ export const getSecret = (key: string) => {
 
   // only decrypt secrets the first time
   if (!decryptedSecrets) {
-    if (!process.env.GITOPS_SECRETS_MASTER_KEY) {
+    if (!process.env.SECRETS_KEY) {
       return undefined;
     }
 
@@ -25,7 +25,7 @@ export const getSecret = (key: string) => {
       path.join(process.cwd(), ENCRYPTED_SECRETS_FILE),
       "utf8"
     );
-    const cryptr = new Cryptr(process.env.GITOPS_SECRETS_MASTER_KEY);
+    const cryptr = new Cryptr(process.env.SECRETS_KEY);
     decryptedSecrets = JSON.parse(cryptr.decrypt(encryptedSecrets));
   }
 
