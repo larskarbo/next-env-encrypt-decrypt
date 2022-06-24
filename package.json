@@ -6,14 +6,18 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "fetch-secrets": "dotenv -- ts-node -T scripts/fetchSecretsToEnv.ts",
+    "fetch-encrypt-secrets": "dotenv -- ts-node -T scripts/fetchAndEncryptSecrets.ts"
   },
   "dependencies": {
+    "gitops-secrets": "^0.0.5",
     "next": "12.1.6",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "dotenv-cli": "^5.1.0",
     "@types/node": "18.0.0",
     "@types/react": "18.0.14",
     "@types/react-dom": "18.0.5",
