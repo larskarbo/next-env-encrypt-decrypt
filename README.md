@@ -1,15 +1,17 @@
 # next-env-encrypt-decrypt
 
-This is an example repository for how to use `gitops-secret` in a Nextjs project.
+This is an example repository for how to work around Vercel's 4kb restriction in a Nextjs project using an external secrets provider. We are using [Doppler](https://doppler.com/) here, but you could use whatever you want.
 
-Set up doppler and vercel
+## Quick start
+
+Set up Doppler and Vercel
 
 ```bash
 doppler setup
 vercel link
 ```
 
-Add the DOPPLER_TOKEN to the Vercel environment manager.
+Add the `DOPPLER_TOKEN` to the Vercel environment manager.
 
 ```bash
 echo -n "$(doppler configs tokens create vercel-gitops --config dev --plain)" | vercel env add DOPPLER_TOKEN development
@@ -32,7 +34,6 @@ npm run dev
 ```
 
 And load https://localhost:3000
-
 
 ## Alternative 2: With encryption
 
