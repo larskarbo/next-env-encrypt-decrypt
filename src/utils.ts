@@ -8,7 +8,7 @@ import Cryptr from "cryptr";
 import getConfig from "next/config";
 import path from "path";
 
-export const ENCRYPTED_SECRETS_FILE = "public/encrypted-secrets.md";
+export const ENCRYPTED_SECRETS_FILE = "./public/encrypted-secrets.md";
 
 export const getSecret = (key: string) => {
   const { serverRuntimeConfig } = getConfig();
