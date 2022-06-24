@@ -4,6 +4,9 @@ const nextConfig = {
   serverRuntimeConfig: {
     PROJECT_ROOT: process.cwd(),
   },
+  experimental: {
+    nftTracing: true,
+  },
 };
 
 module.exports = nextConfig;
