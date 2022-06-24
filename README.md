@@ -19,7 +19,9 @@ echo -n "$(doppler configs tokens create vercel-gitops --config stg --plain)" | 
 echo -n "$(doppler configs tokens create vercel-gitops --config prd --plain)" | vercel env add DOPPLER_TOKEN production
 ```
 
-Add `NEXT_PUBLIC_KEY` and `SECRET_KEY` to Doppler.
+In this example, you'll need two keys in Doppler: `NEXT_PUBLIC_KEY` and `SECRET_KEY`.
+
+<img width="665" alt="screenshot-mko9dm3c" src="https://user-images.githubusercontent.com/10865165/175525864-a102b549-71c2-4dd6-ad1b-5e4e6c60e3fb.png">
 
 ## Alternative 1: Without encryption
 
