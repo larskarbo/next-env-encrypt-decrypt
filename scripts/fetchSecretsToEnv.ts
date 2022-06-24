@@ -1,5 +1,5 @@
 import fs from "fs/promises";
-import secrets from "gitops-secrets";
+import secrets from "@larskarbo/gitops-secrets";
 
 async function main() {
   const payload = await secrets.providers.doppler.fetch();
