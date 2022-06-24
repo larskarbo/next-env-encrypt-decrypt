@@ -7,11 +7,12 @@ import { readFileSync } from "fs";
 import Cryptr from "cryptr";
 import getConfig from "next/config";
 import path from "path";
-const { serverRuntimeConfig } = getConfig();
 
 export const ENCRYPTED_SECRETS_FILE = "public/encrypted-secrets.md";
 
 export const getSecret = (key: string) => {
+  const { serverRuntimeConfig } = getConfig();
+
   // in case you have some overrides in `.env.local`
   if (process.env.NODE_ENV === "development" && process.env[key]) {
     return process.env[key];
