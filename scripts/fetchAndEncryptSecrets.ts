@@ -1,11 +1,11 @@
 import Cryptr from "cryptr";
 import fs from "fs/promises";
 
-import secrets from "@larskarbo/gitops-secrets";
+import gitopsSecrets from "@larskarbo/gitops-secrets";
 import { ENCRYPTED_SECRETS_FILE } from "../src/utils";
 
 async function main() {
-  const payload = await secrets.providers.doppler.fetch();
+  const payload = await gitopsSecrets.providers.doppler.fetch();
 
   if (!process.env.GITOPS_SECRETS_MASTER_KEY) {
     throw new Error("GITOPS_SECRETS_MASTER_KEY is not set");

@@ -1,8 +1,8 @@
 import fs from "fs/promises";
-import secrets from "@larskarbo/gitops-secrets";
+import gitopsSecrets from "@larskarbo/gitops-secrets";
 
 async function main() {
-  const payload = await secrets.providers.doppler.fetch();
+  const payload = await gitopsSecrets.providers.doppler.fetch();
 
   let envFile = "";
 
