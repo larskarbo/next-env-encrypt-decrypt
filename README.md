@@ -2,7 +2,11 @@
 
 This is an example repository for how to work around Vercel's 4kb restriction in a Nextjs project using an external secrets provider. We are using [Doppler](https://doppler.com/) here, but you could use whatever you want.
 
-Add some extra security by encrypting the values at rest. This prevents the need to have secrets in `env` and in `process.env`.
+This way of handling secrets achieves two things:
+
+- ✅ No 4kb environment variable restriction
+- ✅ Secrets are not freely available on `process.env`, increasing security
+
 
 ## Set up
 
