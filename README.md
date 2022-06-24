@@ -11,6 +11,7 @@ This way of handling secrets achieves two things:
 - ✅ No 4kb environment variable restriction
 - ✅ Secrets are not freely available on `process.env`, increasing security
 
+Demo: [https://next-env-encrypt-decrypt.vercel.app](https://next-env-encrypt-decrypt.vercel.app)
 
 ## Set up
 
