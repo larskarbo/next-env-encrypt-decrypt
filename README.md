@@ -50,7 +50,7 @@ For this example, you'll need two keys in Doppler: `NEXT_PUBLIC_KEY` and `SECRET
 ## Run locally
 
 ```
-npm run fetch-secrets
+npm run fetch-secrets:local
 npm run dev
 ```
 
