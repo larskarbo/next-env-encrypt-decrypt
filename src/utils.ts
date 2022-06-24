@@ -5,14 +5,11 @@ let decryptedSecrets: null | {
 import { readFileSync } from "fs";
 
 import Cryptr from "cryptr";
-import getConfig from "next/config";
 import path from "path";
 
 export const ENCRYPTED_SECRETS_FILE = "./public/encrypted-secrets.md";
 
 export const getSecret = (key: string) => {
-  const { serverRuntimeConfig } = getConfig();
-
   // in case you have some overrides in `.env.local`
   if (process.env.NODE_ENV === "development" && process.env[key]) {
     return process.env[key];
@@ -25,7 +22,7 @@ export const getSecret = (key: string) => {
     }
 
     const encryptedSecrets = readFileSync(
-      path.join(serverRuntimeConfig.PROJECT_ROOT, ENCRYPTED_SECRETS_FILE),
+      path.join(process.cwd(), ENCRYPTED_SECRETS_FILE),
       "utf8"
     );
     const cryptr = new Cryptr(process.env.GITOPS_SECRETS_MASTER_KEY);
