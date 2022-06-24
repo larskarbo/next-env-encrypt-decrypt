@@ -4,11 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "npm run fetch-encrypt-secrets && next build",
+    "build": "npm run fetch-secrets:vercel && next build",
     "start": "next start",
     "lint": "next lint",
-    "fetch-secrets": "dotenv -- ts-node -T scripts/fetchSecretsToEnv.ts",
-    "fetch-encrypt-secrets": "dotenv -- ts-node -T scripts/fetchAndEncryptSecrets.ts"
+    "fetch-secrets:vercel": "dotenv -- ts-node scripts/fetchAndEncryptSecrets.ts",
+    "fetch-secrets:local": "vercel env pull -y && dotenv -- ts-node scripts/fetchAndEncryptSecrets.ts"
   },
   "dependencies": {
     "@larskarbo/gitops-secrets": "^0.1.1",
