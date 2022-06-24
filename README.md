@@ -1,8 +1,8 @@
 # next-env-encrypt-decrypt
 
-<center>
+<p align="center">
 <img width="500" alt="screenshot-A11HJzvP" src="https://user-images.githubusercontent.com/10865165/175528229-0c7c0788-3fe1-40bb-8ecf-4b19d8617081.png">
-</center>
+</p>
 
 This is an example repository for how to work around Vercel's 4kb restriction in a Nextjs project using an external secrets provider. We are using [Doppler](https://doppler.com/) here, but you could use whatever you want.
 
