@@ -42,9 +42,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
   return {
     props: {
       secretKeyFromProcess: process.env.SECRET_KEY || "undefined",
-      secretKey:
-        (process.env.GITOPS_SECRETS_MASTER_KEY && getSecret("SECRET_KEY")) ||
-        "undefined",
+      secretKey: getSecret("SECRET_KEY") || "undefined",
     },
   };
 };
